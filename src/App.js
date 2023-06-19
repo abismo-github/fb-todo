@@ -26,7 +26,7 @@ function App() {
         setFBEmail={setFBEmail}
         setFBUid={setFBUid}
       />
-      <div className="container w-full h-full">
+      <div className="container mx-auto h-full">
         <Routes>
           {/* Navigate를 이용한 강제 이동 */}
           <Route path="/" element={<Navigate to="/home" />} />

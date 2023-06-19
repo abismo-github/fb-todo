@@ -109,6 +109,7 @@ const MyPage = ({
             <button
               className="border rounded px-3 py-2 shadow"
               onClick={handlerNickName}
+              style={{ backgroundColor: "#1677ff",color:"white" }}
             >
               별칭 변경
             </button>
@@ -120,10 +121,12 @@ const MyPage = ({
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
+              
             />
             <button
               className="border rounded px-3 py-2 shadow"
               onClick={handlerEmail}
+              style={{ backgroundColor: "#1677ff",color:"white" }}
             >
               이메일 변경
             </button>
@@ -150,14 +153,19 @@ const MyPage = ({
             <button
               className="border rounded px-3 py-2 shadow"
               onClick={handlerPassword}
+              style={{ backgroundColor: "#1677ff" ,color:"white"}}
             >
               비밀번호 변경
             </button>
           </div>
           <div className="flex justify-center gap-5 w-full">
           <button
-              className="border rounded px-3 py-2 shadow"
+              className="border rounded px-3 py-2 shadow "
               onClick={handlerDelet}
+              type="primary"
+              style={{
+                backgroundColor: "#1677ff", color: "white"
+              }}
             >
               회원탈퇴
             </button>
@@ -167,6 +175,7 @@ const MyPage = ({
                 e.preventDefault();
                 navigate("/");
               }}
+              style={{ backgroundColor: "white",color:"black"}}
             >
               취소
             </button>
