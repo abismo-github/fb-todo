@@ -10,6 +10,10 @@ import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import MyPage from "./pages/MyPage";
 import { useState } from "react";
+import Schedule from "./pages/Schedule";
+import  Upload  from "./pages/Upload";
+import TodoChart from "./pages/TodoChart";
+
 
 function App() {
   // 추후에 Redux/Recoil state로 관리 필요
@@ -57,7 +61,10 @@ function App() {
                 setFBEmail={setFBEmail}
                 setFBUid={setFBUid}
           />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/upload" element={<Upload/>}/>
+          <Route path="/chart" element={<TodoChart />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </div>

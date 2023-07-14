@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
   },
 });
 // Todo Get 기능
-const getTodo = async setTodoData => {
+const getTodo = async (함수, 함수2) => {
   try {
     const res = await axiosInstance.get("/todos");
     const result = res.data;
@@ -23,14 +23,19 @@ const getTodo = async setTodoData => {
       // item.id = JSON.parse(item.id);
       return item;
     });
-    setTodoData(todosArr);
+    함수(todosArr);
+    함수2(false);
   } catch (error) {
     console.log(error);
+    함수2(false)
   }
   // .then(res => res.data)
   // .then(data => console.log(data))
   // .catch(error => console.log(error));
 };
+
+// not-todo-list Get기능
+
 // Todo Post 기능
 // Todo Patch 기능
 const patchTitleTodo = async (_id, editTitle) => {

@@ -14,7 +14,7 @@ const Form = ({ todoData, setTodoData, fbName, fbEmail }) => {
   };
   // form submit 실행시 체크
   const handleSubmit = e => {
-    // 웹 브라우저 rul 주소표시창으로 데이터 전송을 막아야한다.
+    // 웹 브라우저 url 주소표시창으로 데이터 전송을 막아야한다.
     // 마치 a태그의 href를 막아주듯이
     e.preventDefault();
     // 새로운 todo 객체를 만들어준다.

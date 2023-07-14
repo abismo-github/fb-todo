@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import SingUpDiv from "../style/UserCSS";
 import { useNavigate } from "react-router-dom";
 // firebase 연동
-import firebase from "../firebase";
+// import firebase from "../firebase";
+import { useSignup } from "../hooks/useSignup";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -10,33 +11,46 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
+
+  // custom Hook 을 활용
+  const { signUp } = useSignup();
+
   const handleSignUp = async e => {
     e.preventDefault();
+
     try {
-      // firebase 에 회원가입 하기
-      let createUser = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, pw);
-      // 회원가입 성공시 사용자 이름을 업데이트
-      await createUser.user.updateProfile({
-        displayName: nickName,
-      });
-      // 로그인 창으로 이동
-      navigate("/login");
-      console.log("등록된 정보 : ", createUser.user);
+      // 로그인을 시도한다.
+      signUp(email, pw, nickName);
     } catch (error) {
-      // 회원가입 시 에러 처리
-      console.log(error.code);
-      if (error.code == "auth/email-already-in-use") {
-        alert("The email address is already in use");
-    } else if (error.code == "auth/invalid-email") {
-        alert("The email address is not valid.");
-    } else if (error.code == "auth/operation-not-allowed") {
-        alert("Operation not allowed.");
-    } else if (error.code == "auth/weak-password") {
-        alert("The password is too weak.");
+      console.log(error);
     }
-    }
+
+    // try {
+    //   // firebase 에 회원가입 하기
+    //   let createUser = await firebase
+    //     .auth()
+    //     .createUserWithEmailAndPassword(email, pw);
+    //   // 회원 가입이 성공시 사용자 이름을 업데이트
+    //   await createUser.user.updateProfile({
+    //     displayName: nickName,
+    //   });
+    //   // 로그인 창으로 이동
+    //   navigate("/login");
+
+    //   console.log("등록된 정보 : ", createUser.user);
+    // } catch (error) {
+    //   // 회원가입 시 에러 처리
+    //   console.log(error.code);
+    //   if (error.code == "auth/email-already-in-use") {
+    //     alert("The email address is already in use");
+    //   } else if (error.code == "auth/invalid-email") {
+    //     alert("The email address is not valid.");
+    //   } else if (error.code == "auth/operation-not-allowed") {
+    //     alert("Operation not allowed.");
+    //   } else if (error.code == "auth/weak-password") {
+    //     alert("The password is too weak.");
+    //   }
+    // }
   };
 
   return (

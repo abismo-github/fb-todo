@@ -21,7 +21,7 @@ const Login = ({ setFBEmail, setFBName, setFBUid }) => {
       setFBName(user.displayName);
       setFBEmail(user.email);
       setFBUid(user.uid);
-      navigate("/todo");
+      navigate("/");
     } catch (error) {
       console.log(error.code);
 

@@ -35,6 +35,19 @@ const Header = ({ fbName, fbEmail, fbUid, setFBName, setFBEmail, setFBUid }) => 
               Todo
             </Link>
           </li>
+          <li>
+            <Link to="/schedule" className="text-white hover:text-orange-600">Schedule</Link>
+          </li>
+          <li>
+            <Link to="/upload" className="text-white hover:text-orange-600">
+              Upload
+            </Link>
+          </li>
+          <li>
+            <Link to="/chart" className="text-white hover:text-orange-600">
+              Chart
+            </Link>
+          </li>
         </ul>
         <div className="flex justify-center gap-5">
           {fbUid ? (
@@ -50,7 +63,7 @@ const Header = ({ fbName, fbEmail, fbUid, setFBName, setFBEmail, setFBUid }) => 
               </Link>
               <Link to="/signup" className="text-white hover:text-orange-600">
               Signup
-              </Link>
+                </Link>
             </>
           )}
         </div>
